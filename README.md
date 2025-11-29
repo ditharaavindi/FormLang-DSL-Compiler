@@ -121,6 +121,3 @@ This project is part of the **SE2062 – Programming Paradigms** course, demonst
 
 **Built and tested using Lex/Flex and Yacc/Bison**
 
-```
-
-```
