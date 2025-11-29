@@ -1,77 +1,130 @@
+# FormLang++ DSL Compiler
 
-````markdown
-# FormLang++ DSL Compiler  
 **SE2062 – Programming Paradigms**  
 **Student Name:** Manula Cooray  
-**Student ID:** IT23194830  
-
----
+**Student ID:** IT23194830
 
 ## 📌 Project Overview
 
-This project implements a **Domain-Specific Language (DSL)** called **FormLang++**,
-which allows users to define structured web forms using a simple, readable syntax. T
-he system parses the `.form` files using **Lex and Yacc** and generates styled and validated HTML output.
+This project implements a **Domain-Specific Language (DSL)** called **FormLang++**, which allows users to define structured web forms using a simple, readable syntax. The system parses `.form` files using **Lex and Yacc** and generates styled and validated HTML output.
 
----
+## 📁 Project Structure
 
-## 📁 Files Included
+| File               | Description                                 |
+| ------------------ | ------------------------------------------- |
+| `parser.y`         | Bison grammar file (parsing + HTML + JS)    |
+| `lexer.l`          | Lex file defining tokens and regex rules    |
+| `example.form`     | Sample DSL input with full feature coverage |
+| `output.html`      | Generated HTML form from `example.form`     |
+| `EBNF_Grammer.pdf` | EBNF grammar specification (DSL syntax)     |
+| `Makefile`         | Automates the build process                 |
+| `formgen`          | Compiled parser executable                  |
+| `lex.yy.c`         | Generated lexical analyzer C code           |
+| `parser.tab.c`     | Generated parser C code                     |
+| `parser.tab.h`     | Generated parser header file                |
 
-| File             | Description                                 |
-|------------------|---------------------------------------------|
-| `parser.y`       | Bison grammar file (parsing + HTML + JS)    |
-| `lexer.l`        | Lex file defining tokens and regex rules     |
-| `example.form`   | Sample DSL input with full feature coverage |
-| `output.html`    | HTML form generated from `example.form`     |
-| `grammer.pdf`    | EBNF grammar specification (DSL syntax)     |
-| `Makefile`       | Automates the build process                 |
-| `formgen`        | Compiled parser executable                  |
+## 🚀 Quick Start
 
----
+### Prerequisites
 
-## ⚙️ How to Build and Run
+- Lex/Flex
+- Yacc/Bison
+- GCC compiler
+- Make utility
 
-### 1. Compile using `make`
+### Build and Run
+
+1. **Compile the project:**
+
 ```bash
 make
-````
+```
 
-### 2. Generate HTML output
+2. **Generate HTML from DSL input:**
 
 ```bash
 ./formgen < example.form > output.html
 ```
 
-### 3. Open the form
+3. **View the generated form:**
 
-Open `output.html` in any browser to view the styled form with live validation.
+```bash
+open output.html  # macOS
+# or
+xdg-open output.html  # Linux
+# or simply open the file in your browser
+```
+
+## ✨ Features
+
+### Supported Field Types
+
+- **Text fields**: text, email, password
+- **Numeric fields**: number, date
+- **Selection fields**: checkbox, dropdown, radio buttons
+- **Content fields**: textarea, file upload
+
+### Field Attributes
+
+- **Validation**: required, min/max values, pattern matching
+- **Defaults**: default values for fields
+- **Constraints**: file type restrictions (accept attribute)
+- **Metadata**: labels, placeholders, and descriptions
+
+### Advanced Features
+
+- **Form metadata**: Author information and form properties
+- **Client-side validation**: JavaScript validation with user feedback
+- **Styled output**: Semantic HTML with CSS styling
+- **Error handling**: Comprehensive error reporting during parsing
+
+## 🔧 Development
+
+### Grammar Specification
+
+The DSL grammar is formally defined in `EBNF_Grammer.pdf`. The grammar supports:
+
+- Form declarations with metadata
+- Field definitions with various types and attributes
+- Validation rules and constraints
+
+### Architecture
+
+- **Lexical Analysis**: `lexer.l` defines tokens and patterns
+- **Syntax Analysis**: `parser.y` implements the grammar and generates HTML
+- **Code Generation**: Integrated HTML and JavaScript generation
+
+## 📝 Example Usage
+
+See `example.form` for a comprehensive example that demonstrates:
+
+- All supported field types
+- Validation rules
+- Form metadata
+- Complex form structures
+
+## 🧪 Testing
+
+To test the compiler:
+
+1. Create a `.form` file with your DSL code
+2. Run: `./formgen < your-file.form > output.html`
+3. Open the generated HTML in a browser
+4. Test form validation and submission
+
+## 📚 Academic Context
+
+This project is part of the **SE2062 – Programming Paradigms** course, demonstrating:
+
+- Compiler construction principles
+- Domain-Specific Language design
+- Lexical and syntax analysis
+- Code generation techniques
 
 ---
 
-## ✅ Features Implemented
-
-* All **field types**: text, number, email, password, checkbox, dropdown, radio, textarea, file, date
-* **Required and optional attributes** (min, max, pattern, default, accept, etc.)
-* **Form metadata** (e.g., author)
-* **Validation block** with JavaScript alerts
-* **Styled HTML output** with semantic labels
-* **Readable EBNF Grammar** (see `grammer.pdf`)
-
----
-
-## 🎥 Demo Instructions
-
-Run `formgen` on `example.form`, open the output HTML, and try:
-
-* Submitting invalid data (e.g., age < 18, empty password)
-* Submitting a valid form
-
----
-
-## 🧾 Notes
-
-* Built and tested using **Lex** and **Bison** on WSL Ubuntu.
-* This project is part of the take-home assignment for SE2062 – Programming Paradigms.
+**Built and tested using Lex/Flex and Yacc/Bison**
 
 ```
 
+```
