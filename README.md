@@ -1,9 +1,5 @@
 # FormLang++ DSL Compiler
 
-**SE2062 – Programming Paradigms**  
-**Student Name:** Manula Cooray  
-**Student ID:** IT23194830
-
 ## 📌 Project Overview
 
 This project implements a **Domain-Specific Language (DSL)** called **FormLang++**, which allows users to define structured web forms using a simple, readable syntax. The system parses `.form` files using **Lex and Yacc** and generates styled and validated HTML output.
