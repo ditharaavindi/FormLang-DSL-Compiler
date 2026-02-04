@@ -1,5 +1,5 @@
 form Registration {
-  meta author = "Manula";
+  meta author = "Avindi";
 
   section Info {
     field username: text pattern="[A-Za-z]+" required;
